@@ -50,7 +50,7 @@ def sendMail(server, project, ticket_id, email_to, name_to, overdue):
         SUBJECT = "[%s]The due day of your ticket #%d is today" %(project, ticket_id)
         TEXT = 'Dear %s,\n\n' %name_to + 'Remind you that your ticket #%d' %ticket_id + '(http://192.168.128.96/trac/%s/ticket/%d/)' %(project, ticket_id) +' due day is today.\n\nRegards,\nKwiwon'
 
-    TO = "kwiwon@gmail.com"
+    TO = to
     BODY = string.join(("From: %s" % FROM,"To: %s" % TO,"CC: %s" % string.join(CC), "Subject: %s" % SUBJECT ,"",TEXT), "\r\n")
     TO = [TO] + CC
     server.sendmail(FROM, TO, BODY)
